@@ -9,5 +9,6 @@ build:
     - >-
       /kaniko/executor
       --dockerfile "Dockerfile"
+      --context "${CI_PROJECT_DIR}/Dockerfile/"
       --destination "harbor.sti.demo/prd/asp:v2"
       --insecure 
