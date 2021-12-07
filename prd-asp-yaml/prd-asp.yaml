@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: asp-prd
+  labels:
+    app: asp-prd
+spec:
+  selector:
+    matchLabels:
+      app: asp-prd
+  replicas: 3
+  serviceName: asp-prd-svc
+  template:
+    metadata:
+      labels:
+        app: asp-prd
+    spec:
+      containers:
+      - name: ngc-prd
+        image: 'harbor.sti.demo/prd/asp:v1'
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: asp-prd-svc
+  labels:
+    hpecp.hpe.com/hpecp-internal-gateway: "true"
+spec:
+  selector:
+    app: asp-prd
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort
