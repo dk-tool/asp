@@ -15,6 +15,6 @@ build:
       /kaniko/executor
       --context "${CI_PROJECT_DIR}"
       --dockerfile "prd-image/Dockerfile"
-      --destination "harbor.sti.demo/prd/asp:v2"
+      --destination "harbor.sti.demo/prd/asp:${version}"
       --insecure
       --insecure-pull
