@@ -1,3 +1,3 @@
-FROM harbor.sti.demo/sti/aspnetapp:prd-v2
-RUN touch /tmp/version2
+FROM harbor.sti.demo/sti/aspnetapp:prd-v1
+RUN touch /tmp/version1
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
