@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ngc-prd
-        image: 'harbor.sti.demo/prd/asp:v1'
+        image: 'harbor.sti.demo/prd/asp:tmp'
         ports:
           - name: http
             containerPort: 80
