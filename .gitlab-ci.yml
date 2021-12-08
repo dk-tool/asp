@@ -9,7 +9,7 @@ build:
     - >-
       /kaniko/executor
       --context "/builds/root/prd-asp/prd-image/"
-      --dockerfile "Dockerfile"
+      --dockerfile "prd-image/Dockerfile"
       --destination "harbor.sti.demo/prd/asp:v2"
       --insecure
       --insecure-pull
